@@ -85,6 +85,21 @@ const scenes = {
   }
 };
 
+const temperatures = {
+  warm: {
+    color: "#ffd8a3",
+    rgb: "255, 216, 163"
+  },
+  neutral: {
+    color: "#fff7e8",
+    rgb: "255, 247, 232"
+  },
+  cool: {
+    color: "#d8f2ff",
+    rgb: "216, 242, 255"
+  }
+};
+
 let lightOn = true;
 
 function addLog(command, response) {
@@ -107,6 +122,14 @@ function setBrightness(value) {
 function setAccent(color, rgb) {
   body.style.setProperty("--primary", color);
   body.style.setProperty("--primary-rgb", rgb);
+}
+
+function setTemperature(temperatureName) {
+  const temperature = temperatures[temperatureName];
+  if (!temperature) return;
+
+  body.style.setProperty("--lamp-color", temperature.color);
+  body.style.setProperty("--lamp-rgb", temperature.rgb);
 }
 
 function activateScene(sceneName) {
@@ -158,6 +181,7 @@ document.querySelectorAll("[data-temperature]").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll("[data-temperature]").forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
+    setTemperature(button.dataset.temperature);
     addLog(
       copy.temperature.replace("{value}", button.textContent),
       copy.temperatureSet.replace("{value}", button.textContent.toLowerCase())
@@ -228,3 +252,4 @@ commandForm.addEventListener("submit", (event) => {
 });
 
 setBrightness(brightnessSlider.value);
+setTemperature(document.querySelector("[data-temperature].active")?.dataset.temperature || "warm");
