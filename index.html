@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PEARL HOME</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #050b14;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      background: rgba(5,11,20,0.9);
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #5ce1ff, #0077ff);
+      box-shadow: 0 0 25px rgba(92,225,255,0.5);
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+
+    .logo p {
+      color: #7f8fa6;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+    }
+
+    .beta {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(92,225,255,0.2);
+      background: rgba(92,225,255,0.08);
+      color: #5ce1ff;
+      font-weight: bold;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,140,255,0.2), transparent 70%);
+      filter: blur(40px);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero h2 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero span {
+      color: #5ce1ff;
+    }
+
+    .hero p {
+      color: #9fb3c8;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      border-radius: 16px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: #5ce1ff;
+      color: #001018;
+      box-shadow: 0 0 25px rgba(92,225,255,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 40px rgba(92,225,255,0.6);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+    }
+
+    .features {
+      padding: 100px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h3 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #8aa0b8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 24px;
+      padding: 30px;
+      transition: 0.3s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(92,225,255,0.3);
+      box-shadow: 0 0 30px rgba(0,140,255,0.1);
+    }
+
+    .card h4 {
+      margin-bottom: 16px;
+      color: #5ce1ff;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: #9db0c4;
+      line-height: 1.7;
+    }
+
+    .preview {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .preview img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 30px;
+      box-shadow: 0 0 60px rgba(0,140,255,0.2);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    footer {
+      padding: 50px 20px;
+      text-align: center;
+      color: #6f8397;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon"></div>
+    <div>
+      <h1>PEARL HOME</h1>
+      <p>SMART LIVING INTERFACE</p>
+    </div>
+  </div>
+
+  <div class="beta">BETA</div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Tu hogar.<br><span>Tu música.</span><br>Tu entorno.</h2>
+
+    <p>
+      PEARL HOME es una interfaz inteligente y modular para controlar iluminación,
+      música, automatización y experiencias digitales desde un solo lugar.
+    </p>
+
+    <div class="buttons">
+      <a href="#features" class="btn btn-primary">Explorar</a>
+      <a href="#preview" class="btn btn-secondary">Ver Demo</a>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="section-title">
+    <h3>Un sistema integrado</h3>
+    <p>Diseñado para una experiencia simple, visual y conectada.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Iluminación Inteligente</h4>
+      <p>
+        Control de brillo, colores, temperatura y escenas desde una interfaz moderna y responsiva.
+      </p>
+    </div>
+
+    <div class="card">
+      <h4>Music Engine</h4>
+      <p>
+        Reproduce música, crea ambientes y controla todo desde el mismo ecosistema.
+      </p>
+    </div>
+
+    <div class="card">
+      <h4>Consola Integrada</h4>
+      <p>
+        Ejecuta comandos y conecta múltiples módulos desde una sola experiencia.
+      </p>
+    </div>
+
+    <div class="card">
+      <h4>Arquitectura Modular</h4>
+      <p>
+        PEARL HOME funciona mediante plugins y servicios independientes preparados para crecer.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="preview" id="preview">
+  <div class="section-title">
+    <h3>Vista previa</h3>
+    <p>Interfaz móvil inspirada en el sistema real.</p>
+  </div>
+
+  <img src="https://placehold.co/350x700/07111f/5ce1ff?text=PEARL+HOME" alt="PEARL HOME UI Preview">
+</section>
+
+<footer>
+  <p>PEARL HOME © 2026 • Proyecto experimental en desarrollo</p>
+</footer>
+
+</body>
+</html>
