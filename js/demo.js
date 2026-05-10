@@ -8,6 +8,47 @@ const commandForm = document.querySelector("#commandForm");
 const commandInput = document.querySelector("#commandInput");
 const trackState = document.querySelector("#trackState");
 const musicSearch = document.querySelector("#musicSearch");
+const isPortuguese = document.documentElement.lang.toLowerCase().startsWith("pt");
+
+const copy = isPortuguese
+  ? {
+      appliedScene: "Cena {scene} aplicada",
+      lightOn: "Luz acesa",
+      lightOff: "Luz apagada",
+      turnOn: "Acender luz",
+      turnOff: "Apagar luz",
+      brightness: "Ajustar brilho {value}%",
+      brightnessSet: "Brilho definido em {value}%",
+      temperature: "Alterar temperatura {value}",
+      temperatureSet: "Temperatura {value} aplicada",
+      changeColor: "Alterar cor da luz",
+      colorUpdated: "Cor principal atualizada",
+      searchMusic: "Buscar musica {track}",
+      trackReady: "Canal {track} preparado",
+      searchSent: "Busca enviada ao Music Engine",
+      alreadyOff: "A luz ja esta apagada",
+      alreadyOn: "A luz ja esta acesa",
+      commandReceived: "Comando recebido"
+    }
+  : {
+      appliedScene: "Escena {scene} aplicada",
+      lightOn: "Luz encendida",
+      lightOff: "Luz apagada",
+      turnOn: "Encender luz",
+      turnOff: "Apagar luz",
+      brightness: "Ajustar brillo {value}%",
+      brightnessSet: "Brillo establecido en {value}%",
+      temperature: "Cambiar temperatura {value}",
+      temperatureSet: "Temperatura {value} aplicada",
+      changeColor: "Cambiar color de luz",
+      colorUpdated: "Color principal actualizado",
+      searchMusic: "Buscar musica {track}",
+      trackReady: "Canal {track} preparado",
+      searchSent: "Busqueda enviada al Music Engine",
+      alreadyOff: "La luz ya esta apagada",
+      alreadyOn: "La luz ya esta encendida",
+      commandReceived: "Comando recibido"
+    };
 
 const scenes = {
   relax: {
@@ -16,31 +57,31 @@ const scenes = {
     rgb: "92, 225, 255",
     stage: "#07111f",
     brightness: 78,
-    command: "Activar escena relax"
+    command: isPortuguese ? "Ativar cena relax" : "Activar escena relax"
   },
   reading: {
-    label: "Lectura",
+    label: isPortuguese ? "Leitura" : "Lectura",
     color: "#ffd36a",
     rgb: "255, 211, 106",
     stage: "#17120a",
     brightness: 88,
-    command: "Activar escena lectura"
+    command: isPortuguese ? "Ativar cena leitura" : "Activar escena lectura"
   },
   night: {
-    label: "Noche",
+    label: isPortuguese ? "Noite" : "Noche",
     color: "#9f7cff",
     rgb: "159, 124, 255",
     stage: "#080615",
     brightness: 34,
-    command: "Activar escena noche"
+    command: isPortuguese ? "Ativar cena noite" : "Activar escena noche"
   },
   energy: {
-    label: "Energía",
+    label: isPortuguese ? "Energia" : "Energía",
     color: "#8dffb8",
     rgb: "141, 255, 184",
     stage: "#06140d",
     brightness: 96,
-    command: "Activar escena energía"
+    command: isPortuguese ? "Ativar cena energia" : "Activar escena energía"
   }
 };
 
@@ -86,7 +127,7 @@ function activateScene(sceneName) {
   powerButton.textContent = "ON";
   powerButton.setAttribute("aria-pressed", "true");
 
-  addLog(scene.command, `Escena ${scene.label.toLowerCase()} aplicada`);
+  addLog(scene.command, copy.appliedScene.replace("{scene}", scene.label.toLowerCase()));
 }
 
 powerButton.addEventListener("click", () => {
@@ -95,7 +136,7 @@ powerButton.addEventListener("click", () => {
   powerButton.textContent = lightOn ? "ON" : "OFF";
   powerButton.setAttribute("aria-pressed", String(lightOn));
   body.classList.toggle("light-off", !lightOn);
-  addLog(lightOn ? "Encender luz" : "Apagar luz", lightOn ? "Luz encendida" : "Luz apagada");
+  addLog(lightOn ? copy.turnOn : copy.turnOff, lightOn ? copy.lightOn : copy.lightOff);
 });
 
 brightnessSlider.addEventListener("input", (event) => {
@@ -107,14 +148,20 @@ brightnessSlider.addEventListener("change", (event) => {
   body.classList.remove("light-off");
   powerButton.classList.add("active");
   powerButton.textContent = "ON";
-  addLog(`Ajustar brillo ${event.target.value}%`, `Brillo establecido en ${event.target.value}%`);
+  addLog(
+    copy.brightness.replace("{value}", event.target.value),
+    copy.brightnessSet.replace("{value}", event.target.value)
+  );
 });
 
 document.querySelectorAll("[data-temperature]").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll("[data-temperature]").forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
-    addLog(`Cambiar temperatura ${button.textContent}`, `Temperatura ${button.textContent.toLowerCase()} aplicada`);
+    addLog(
+      copy.temperature.replace("{value}", button.textContent),
+      copy.temperatureSet.replace("{value}", button.textContent.toLowerCase())
+    );
   });
 });
 
@@ -125,7 +172,7 @@ document.querySelectorAll(".swatch").forEach((button) => {
     const color = button.dataset.color;
     const rgb = color.match(/\w\w/g).map((hex) => parseInt(hex, 16)).join(", ");
     setAccent(color, rgb);
-    addLog("Cambiar color de luz", "Color principal actualizado");
+    addLog(copy.changeColor, copy.colorUpdated);
   });
 });
 
@@ -139,14 +186,17 @@ document.querySelectorAll("[data-track]").forEach((button) => {
     button.classList.add("active");
     trackState.textContent = button.dataset.track;
     musicSearch.value = button.dataset.track;
-    addLog(`Buscar música ${button.dataset.track}`, `Canal ${button.dataset.track} preparado`);
+    addLog(
+      copy.searchMusic.replace("{track}", button.dataset.track),
+      copy.trackReady.replace("{track}", button.dataset.track)
+    );
   });
 });
 
 musicSearch.addEventListener("change", () => {
   if (!musicSearch.value.trim()) return;
   trackState.textContent = "Search";
-  addLog(`Buscar música ${musicSearch.value.trim()}`, "Búsqueda enviada al Music Engine");
+  addLog(copy.searchMusic.replace("{track}", musicSearch.value.trim()), copy.searchSent);
 });
 
 commandForm.addEventListener("submit", (event) => {
@@ -158,20 +208,20 @@ commandForm.addEventListener("submit", (event) => {
 
   if (normalized.includes("relax")) {
     activateScene("relax");
-  } else if (normalized.includes("lectura")) {
+  } else if (normalized.includes("lectura") || normalized.includes("leitura")) {
     activateScene("reading");
-  } else if (normalized.includes("noche")) {
+  } else if (normalized.includes("noche") || normalized.includes("noite")) {
     activateScene("night");
-  } else if (normalized.includes("energia")) {
+  } else if (normalized.includes("energia") || normalized.includes("energía")) {
     activateScene("energy");
   } else if (normalized.includes("apagar")) {
     if (lightOn) powerButton.click();
-    else addLog(command, "La luz ya esta apagada");
-  } else if (normalized.includes("encender")) {
+    else addLog(command, copy.alreadyOff);
+  } else if (normalized.includes("encender") || normalized.includes("acender")) {
     if (!lightOn) powerButton.click();
-    else addLog(command, "La luz ya esta encendida");
+    else addLog(command, copy.alreadyOn);
   } else {
-    addLog(command, "Comando recibido");
+    addLog(command, copy.commandReceived);
   }
 
   commandInput.value = "";

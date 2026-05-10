@@ -4,19 +4,20 @@ Sitio estatico de PEARL HOME powered by Jarvis.
 
 ## Accesos
 
-- Sitio publicado: https://ricardorincon719.github.io/pearlhome-site/
-- Demo interactiva: https://ricardorincon719.github.io/pearlhome-site/demo.html
-- Portugues: https://ricardorincon719.github.io/pearlhome-site/pt-br/
-- Demo en portugues: https://ricardorincon719.github.io/pearlhome-site/pt-br/demo.html
+- Sitio publicado en portugues: https://ricardorincon719.github.io/pearlhome-site/
+- Demo interactiva en portugues: https://ricardorincon719.github.io/pearlhome-site/demo.html
+- Espanol: https://ricardorincon719.github.io/pearlhome-site/es/
+- Demo en espanol: https://ricardorincon719.github.io/pearlhome-site/es/demo.html
 - Pagina principal: [`index.html`](index.html)
 - Fuente de la demo: [`demo.html`](demo.html)
 
 ## Estructura multidioma
 
-- `/` mantiene la version en espanol.
-- `/pt-br/` queda reservado para portugues brasileno.
+- `/` mantiene la version principal en portugues brasileno.
+- `/es/` conserva la version en espanol.
+- `/pt-br/` redirige a `/` para compatibilidad con enlaces previos.
 - `css/` y `js/` son compartidos entre idiomas.
-- La traduccion portuguesa se agregara sobre los archivos de `pt-br/` sin reemplazar el contenido espanol.
+- La version espanola vive separada, asi que las mejoras portuguesas no reemplazan el contenido espanol.
 
 ## Vista local
 

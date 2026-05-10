@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PEARL HOME Demo</title>
-  <link rel="alternate" hreflang="pt-BR" href="./demo.html" />
-  <link rel="alternate" hreflang="es" href="./es/demo.html" />
-  <link rel="stylesheet" href="css/demo.css" />
+  <link rel="alternate" hreflang="pt-BR" href="../demo.html" />
+  <link rel="alternate" hreflang="es" href="./demo.html" />
+  <link rel="stylesheet" href="../css/demo.css" />
 </head>
 <body class="scene-relax">
   <main class="demo-shell">
     <header class="demo-header">
-      <a class="brand" href="index.html" aria-label="Voltar para PEARL HOME">
+      <a class="brand" href="./" aria-label="Volver a PEARL HOME">
         <span class="brand-mark"></span>
         <span>
           <strong>PEARL HOME</strong>
@@ -21,8 +21,8 @@
 
       <div class="demo-actions">
         <nav class="language-switch" aria-label="Idioma">
-          <a class="active" href="./demo.html" aria-current="page">PT-BR</a>
-          <a href="./es/demo.html">ES</a>
+          <a href="../demo.html">PT-BR</a>
+          <a class="active" href="./demo.html" aria-current="page">ES</a>
         </nav>
         <div class="system-status">
           <span class="pulse"></span>
@@ -32,7 +32,7 @@
     </header>
 
     <section class="experience">
-      <div class="room-stage" aria-label="Simulacao visual de PEARL HOME">
+      <div class="room-stage" aria-label="Simulación visual de PEARL HOME">
         <div class="ambient-glow"></div>
         <div class="light-orb" id="lightOrb"></div>
         <div class="room-lines">
@@ -41,17 +41,17 @@
           <span></span>
         </div>
         <div class="room-info">
-          <span>Cena ativa</span>
+          <span>Escena activa</span>
           <strong id="activeSceneLabel">Relax</strong>
         </div>
       </div>
 
-      <section class="control-grid" aria-label="Controles do PEARL HOME">
+      <section class="control-grid" aria-label="Controles de PEARL HOME">
         <article class="panel light-panel">
           <div class="panel-head">
             <div>
               <span>Luz</span>
-              <h1>Painel principal</h1>
+              <h1>Panel principal</h1>
             </div>
             <button class="power active" id="powerButton" type="button" aria-pressed="true">
               ON
@@ -59,21 +59,21 @@
           </div>
 
           <label class="range-control" for="brightnessSlider">
-            <span>Brilho</span>
+            <span>Brillo</span>
             <strong id="brightnessValue">78%</strong>
           </label>
           <input id="brightnessSlider" type="range" min="5" max="100" value="78" />
 
           <div class="temperature">
             <span>Temperatura</span>
-            <div class="segmented" role="group" aria-label="Temperatura da luz">
-              <button class="active" type="button" data-temperature="warm">Quente</button>
+            <div class="segmented" role="group" aria-label="Temperatura de luz">
+              <button class="active" type="button" data-temperature="warm">Cálido</button>
               <button type="button" data-temperature="neutral">Neutro</button>
               <button type="button" data-temperature="cool">Frio</button>
             </div>
           </div>
 
-          <div class="swatches" aria-label="Cores da luz">
+          <div class="swatches" aria-label="Colores de luz">
             <button class="swatch active" type="button" data-color="#5ce1ff" style="--swatch: #5ce1ff" aria-label="Cian"></button>
             <button class="swatch" type="button" data-color="#8dffb8" style="--swatch: #8dffb8" aria-label="Verde"></button>
             <button class="swatch" type="button" data-color="#ffd36a" style="--swatch: #ffd36a" aria-label="Ambar"></button>
@@ -85,29 +85,29 @@
         <article class="panel">
           <div class="panel-head">
             <div>
-              <span>Cenas</span>
+              <span>Escenas</span>
               <h2>Ambientes</h2>
             </div>
           </div>
 
           <div class="scene-list">
             <button class="scene-button active" type="button" data-scene="relax">Relax</button>
-            <button class="scene-button" type="button" data-scene="reading">Leitura</button>
-            <button class="scene-button" type="button" data-scene="night">Noite</button>
-            <button class="scene-button" type="button" data-scene="energy">Energia</button>
+            <button class="scene-button" type="button" data-scene="reading">Lectura</button>
+            <button class="scene-button" type="button" data-scene="night">Noche</button>
+            <button class="scene-button" type="button" data-scene="energy">Energía</button>
           </div>
         </article>
 
         <article class="panel music-panel">
           <div class="panel-head">
             <div>
-              <span>Musica</span>
+              <span>Música</span>
               <h2>Music Engine</h2>
             </div>
             <span class="track-state" id="trackState">Idle</span>
           </div>
 
-          <input class="music-search" id="musicSearch" type="search" placeholder="Buscar musica..." />
+          <input class="music-search" id="musicSearch" type="search" placeholder="Buscar música..." />
 
           <div class="quick-music">
             <button type="button" data-track="Lofi">Lofi</button>
@@ -128,22 +128,22 @@
         <article class="panel console-panel">
           <div class="panel-head">
             <div>
-              <span>Console</span>
+              <span>Consola</span>
               <h2>Jarvis Command</h2>
             </div>
           </div>
 
           <div class="terminal" id="terminal" aria-live="polite">
             <p><span>&gt;</span> Sistema PEARL iniciado</p>
-            <p class="ok">✓ Interface pronta</p>
-            <p><span>&gt;</span> Acender luz</p>
-            <p class="ok">✓ Luz acesa</p>
-            <p><span>&gt;</span> Ativar cena relax</p>
-            <p class="ok">✓ Cena relax aplicada</p>
+            <p class="ok">✓ Interfaz lista</p>
+            <p><span>&gt;</span> Encender luz</p>
+            <p class="ok">✓ Luz encendida</p>
+            <p><span>&gt;</span> Activar escena relax</p>
+            <p class="ok">✓ Escena relax aplicada</p>
           </div>
 
           <form class="command-row" id="commandForm">
-            <input id="commandInput" type="text" placeholder="Escrever comando..." autocomplete="off" />
+            <input id="commandInput" type="text" placeholder="Escribir comando..." autocomplete="off" />
             <button type="submit">Enviar</button>
           </form>
         </article>
@@ -151,6 +151,6 @@
     </section>
   </main>
 
-  <script src="js/demo.js"></script>
+  <script src="../js/demo.js"></script>
 </body>
 </html>
