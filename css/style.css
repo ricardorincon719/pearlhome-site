@@ -227,12 +227,33 @@ header {
   text-align: center;
 }
 
-.preview img {
+.screenshots {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.screenshot-card {
+  min-width: 0;
+}
+
+.screenshot-card img {
   width: 100%;
-  max-width: 350px;
-  border-radius: 30px;
+  aspect-ratio: 718 / 1599;
+  object-fit: cover;
+  border-radius: 22px;
   box-shadow: 0 0 60px rgba(0,140,255,0.2);
   border: 1px solid rgba(255,255,255,0.08);
+}
+
+.screenshot-card figcaption {
+  margin-top: 14px;
+  color: #9fb3c8;
+  font-size: 0.95rem;
+  font-weight: bold;
 }
 
 footer {
@@ -259,5 +280,16 @@ footer {
 
   .hero p {
     font-size: 1rem;
+  }
+
+  .screenshots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .screenshots {
+    grid-template-columns: 1fr;
+    max-width: 330px;
   }
 }
