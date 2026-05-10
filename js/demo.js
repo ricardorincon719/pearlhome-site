@@ -23,11 +23,11 @@ const copy = isPortuguese
       temperatureSet: "Temperatura {value} aplicada",
       changeColor: "Alterar cor da luz",
       colorUpdated: "Cor principal atualizada",
-      searchMusic: "Buscar musica {track}",
+      searchMusic: "Buscar música {track}",
       trackReady: "Canal {track} preparado",
       searchSent: "Busca enviada ao Music Engine",
-      alreadyOff: "A luz ja esta apagada",
-      alreadyOn: "A luz ja esta acesa",
+      alreadyOff: "A luz já está apagada",
+      alreadyOn: "A luz já está acesa",
       commandReceived: "Comando recebido"
     }
   : {
@@ -42,9 +42,9 @@ const copy = isPortuguese
       temperatureSet: "Temperatura {value} aplicada",
       changeColor: "Cambiar color de luz",
       colorUpdated: "Color principal actualizado",
-      searchMusic: "Buscar musica {track}",
+      searchMusic: "Buscar música {track}",
       trackReady: "Canal {track} preparado",
-      searchSent: "Busqueda enviada al Music Engine",
+      searchSent: "Búsqueda enviada al Music Engine",
       alreadyOff: "La luz ya esta apagada",
       alreadyOn: "La luz ya esta encendida",
       commandReceived: "Comando recibido"
