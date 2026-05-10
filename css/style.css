@@ -16,12 +16,46 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 18px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   background: rgba(5,11,20,0.9);
   z-index: 100;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+}
+
+.language-switch a {
+  min-height: 34px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  color: #9fb3c8;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.language-switch a.active {
+  background: rgba(92,225,255,0.14);
+  color: #5ce1ff;
 }
 
 .logo {
@@ -209,6 +243,16 @@ footer {
 }
 
 @media (max-width: 768px) {
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   .hero h2 {
     font-size: 2.5rem;
   }

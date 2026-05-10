@@ -51,6 +51,39 @@ button {
   margin-bottom: 26px;
 }
 
+.demo-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.language-switch a {
+  min-height: 34px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.language-switch a.active {
+  background: rgba(var(--primary-rgb), 0.14);
+  color: var(--primary);
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -475,6 +508,7 @@ body.light-off .ambient-glow {
   }
 
   .demo-header,
+  .demo-actions,
   .panel-head {
     align-items: flex-start;
     flex-direction: column;
