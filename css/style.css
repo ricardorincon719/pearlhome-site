@@ -6,7 +6,9 @@
 }
 
 body {
-  background: #050b14;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(92,225,255,0.1), transparent 34rem),
+    linear-gradient(180deg, #050816, #04070f 58%, #050b14);
   color: white;
   overflow-x: hidden;
 }
@@ -93,35 +95,47 @@ header {
 }
 
 .hero {
-  min-height: 90vh;
+  min-height: calc(100vh - 89px);
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
+  padding: 72px 20px 92px;
   position: relative;
+  overflow: hidden;
 }
 
 .hero::before {
   content: "";
   position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0,140,255,0.2), transparent 70%);
-  filter: blur(40px);
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: radial-gradient(circle at 50% 22%, #000, transparent 68%);
+  mask-image: radial-gradient(circle at 50% 22%, #000, transparent 68%);
   z-index: 0;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  width: min(1180px, 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+  gap: clamp(40px, 7vw, 92px);
+  align-items: center;
+}
+
+.hero-copy {
+  max-width: 640px;
 }
 
 .hero h2 {
-  font-size: 4rem;
-  margin-bottom: 20px;
-  line-height: 1.1;
+  font-size: clamp(2.7rem, 6vw, 5.7rem);
+  margin-bottom: 24px;
+  line-height: 0.98;
+  letter-spacing: 0;
 }
 
 .hero span {
@@ -130,23 +144,24 @@ header {
 
 .hero p {
   color: #9fb3c8;
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  line-height: 1.8;
+  font-size: 1.08rem;
+  max-width: 590px;
+  margin-bottom: 30px;
+  line-height: 1.75;
 }
 
 .buttons {
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  gap: 14px;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 16px 32px;
-  border-radius: 16px;
+  padding: 14px 24px;
+  border-radius: 10px;
   border: none;
-  font-size: 1rem;
+  font-size: 0.98rem;
   cursor: pointer;
   transition: 0.3s ease;
   text-decoration: none;
@@ -168,6 +183,83 @@ header {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.15);
   color: white;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.badges span {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  padding: 0 12px;
+  background: rgba(255,255,255,0.035);
+  color: #9fb3c8;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.hero-note {
+  margin-top: 26px;
+  margin-bottom: 0;
+  color: #6f8397;
+  font-size: 0.92rem;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 560px;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 16% 7% 8%;
+  border-radius: 50%;
+  background: rgba(92,225,255,0.12);
+  filter: blur(58px);
+}
+
+.mockup {
+  position: absolute;
+  width: min(42vw, 210px);
+  max-height: 470px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.11);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.42), 0 0 55px rgba(92,225,255,0.1);
+}
+
+.mockup-main {
+  left: 50%;
+  top: 8px;
+  z-index: 3;
+  width: min(46vw, 250px);
+  transform: translateX(-50%);
+}
+
+.mockup-left {
+  left: 0;
+  top: 104px;
+  z-index: 2;
+  opacity: 0.82;
+  transform: rotate(-5deg);
+}
+
+.mockup-right {
+  right: 0;
+  top: 142px;
+  z-index: 2;
+  opacity: 0.82;
+  transform: rotate(5deg);
 }
 
 .features {
@@ -277,12 +369,35 @@ footer {
     justify-content: space-between;
   }
 
+  .hero {
+    min-height: auto;
+    padding: 54px 20px 72px;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
   .hero h2 {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
   }
 
   .hero p {
     font-size: 1rem;
+  }
+
+  .hero-visual {
+    min-height: 440px;
+  }
+
+  .mockup {
+    width: 42%;
+    max-height: 360px;
+  }
+
+  .mockup-main {
+    width: 54%;
   }
 
   .screenshots {

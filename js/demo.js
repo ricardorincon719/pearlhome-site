@@ -25,7 +25,8 @@ const copy = isPortuguese
       colorUpdated: "Cor principal atualizada",
       searchMusic: "Buscar música {track}",
       trackReady: "Canal {track} preparado",
-      searchSent: "Busca enviada ao Music Engine",
+      searchSent: "Busca enviada ao motor de música",
+      searchState: "Busca",
       alreadyOff: "A luz já está apagada",
       alreadyOn: "A luz já está acesa",
       commandReceived: "Comando recebido"
@@ -44,7 +45,8 @@ const copy = isPortuguese
       colorUpdated: "Color principal actualizado",
       searchMusic: "Buscar música {track}",
       trackReady: "Canal {track} preparado",
-      searchSent: "Búsqueda enviada al Music Engine",
+      searchSent: "Búsqueda enviada al motor de música",
+      searchState: "Búsqueda",
       alreadyOff: "La luz ya esta apagada",
       alreadyOn: "La luz ya esta encendida",
       commandReceived: "Comando recibido"
@@ -219,7 +221,7 @@ document.querySelectorAll("[data-track]").forEach((button) => {
 
 musicSearch.addEventListener("change", () => {
   if (!musicSearch.value.trim()) return;
-  trackState.textContent = "Search";
+  trackState.textContent = copy.searchState;
   addLog(copy.searchMusic.replace("{track}", musicSearch.value.trim()), copy.searchSent);
 });
 
