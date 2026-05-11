@@ -7,8 +7,9 @@
 
 body {
   background:
-    radial-gradient(circle at 50% 0%, rgba(92,225,255,0.1), transparent 34rem),
-    linear-gradient(180deg, #050816, #04070f 58%, #050b14);
+    radial-gradient(circle at 58% 8%, rgba(92,225,255,0.08), transparent 32rem),
+    radial-gradient(circle at 18% 35%, rgba(92,225,255,0.035), transparent 22rem),
+    linear-gradient(180deg, #060916, #050812 58%, #050b14);
   color: white;
   overflow-x: hidden;
 }
@@ -99,7 +100,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 72px 20px 92px;
+  padding: 88px 20px 104px;
   position: relative;
   overflow: hidden;
 }
@@ -109,11 +110,11 @@ header {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-  background-size: 52px 52px;
-  -webkit-mask-image: radial-gradient(circle at 50% 22%, #000, transparent 68%);
-  mask-image: radial-gradient(circle at 50% 22%, #000, transparent 68%);
+    linear-gradient(rgba(255,255,255,0.014) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px);
+  background-size: 58px 58px;
+  -webkit-mask-image: radial-gradient(circle at 55% 22%, #000, transparent 64%);
+  mask-image: radial-gradient(circle at 55% 22%, #000, transparent 64%);
   z-index: 0;
 }
 
@@ -122,19 +123,19 @@ header {
   z-index: 1;
   width: min(1180px, 100%);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
-  gap: clamp(40px, 7vw, 92px);
+  grid-template-columns: minmax(0, 0.96fr) minmax(320px, 520px);
+  gap: clamp(56px, 8vw, 116px);
   align-items: center;
 }
 
 .hero-copy {
-  max-width: 640px;
+  max-width: 600px;
 }
 
 .hero h2 {
-  font-size: clamp(2.7rem, 6vw, 5.7rem);
+  font-size: clamp(3rem, 5.8vw, 5.35rem);
   margin-bottom: 24px;
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: 0;
 }
 
@@ -144,10 +145,10 @@ header {
 
 .hero p {
   color: #9fb3c8;
-  font-size: 1.08rem;
-  max-width: 590px;
-  margin-bottom: 30px;
-  line-height: 1.75;
+  font-size: 1.02rem;
+  max-width: 510px;
+  margin-bottom: 32px;
+  line-height: 1.7;
 }
 
 .buttons {
@@ -171,12 +172,12 @@ header {
 .btn-primary {
   background: #5ce1ff;
   color: #001018;
-  box-shadow: 0 0 25px rgba(92,225,255,0.3);
+  box-shadow: 0 0 24px rgba(92,225,255,0.18);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 40px rgba(92,225,255,0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 0 34px rgba(92,225,255,0.26);
 }
 
 .btn-secondary {
@@ -221,45 +222,48 @@ header {
 .hero-visual::before {
   content: "";
   position: absolute;
-  inset: 16% 7% 8%;
+  inset: 18% 8% 10%;
   border-radius: 50%;
-  background: rgba(92,225,255,0.12);
-  filter: blur(58px);
+  background: rgba(92,225,255,0.075);
+  filter: blur(64px);
 }
 
 .mockup {
   position: absolute;
-  width: min(42vw, 210px);
-  max-height: 470px;
+  width: min(40vw, 188px);
+  max-height: 438px;
   object-fit: cover;
   object-position: top center;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,0.11);
-  box-shadow: 0 28px 70px rgba(0,0,0,0.42), 0 0 55px rgba(92,225,255,0.1);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 28px 76px rgba(0,0,0,0.42), 0 0 40px rgba(92,225,255,0.08);
+  animation: floatCalm 6s ease-in-out infinite;
 }
 
 .mockup-main {
   left: 50%;
-  top: 8px;
+  top: 18px;
   z-index: 3;
-  width: min(46vw, 250px);
+  width: min(45vw, 238px);
   transform: translateX(-50%);
 }
 
 .mockup-left {
-  left: 0;
-  top: 104px;
+  left: 22px;
+  top: 128px;
   z-index: 2;
-  opacity: 0.82;
+  opacity: 0.72;
   transform: rotate(-5deg);
+  animation-delay: 0.4s;
 }
 
 .mockup-right {
-  right: 0;
-  top: 142px;
+  right: 22px;
+  top: 152px;
   z-index: 2;
-  opacity: 0.82;
+  opacity: 0.72;
   transform: rotate(5deg);
+  animation-delay: 0.8s;
 }
 
 .features {
@@ -371,16 +375,16 @@ footer {
 
   .hero {
     min-height: auto;
-    padding: 54px 20px 72px;
+    padding: 64px 20px 78px;
   }
 
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
   }
 
   .hero h2 {
-    font-size: 2.7rem;
+    font-size: 2.85rem;
   }
 
   .hero p {
@@ -388,21 +392,31 @@ footer {
   }
 
   .hero-visual {
-    min-height: 440px;
+    min-height: 420px;
   }
 
   .mockup {
-    width: 42%;
-    max-height: 360px;
+    width: 38%;
+    max-height: 330px;
   }
 
   .mockup-main {
-    width: 54%;
+    width: 50%;
   }
 
   .screenshots {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: 430px;
+  }
+}
+
+@keyframes floatCalm {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
   }
 }
 
